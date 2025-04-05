@@ -1,0 +1,46 @@
+# Pliki kompilacji
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.so
+*.so.*
+*.a
+*.lib
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# Visual Studio
+.vs/
+.vscode/
+*.sdf
+*.suo
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+x64/
+
+# Ignoruj katalog bin i obj
+/bin/
+/obj/
+
+# Ignoruj testowe dane wyjściowe
+*.test
+*.log
+*.tmp
+*.bak
+*.old
+
+# Ignoruj pliki konfiguracyjne środowisk
+.env
+*.user
+
+# Ignoruj dane IDE
+.DS_Store
+Thumbs.db
