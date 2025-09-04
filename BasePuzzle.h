@@ -17,4 +17,6 @@ public:
     virtual ~BasePuzzle() {}
 
     virtual Button^ CreatePuzzle(GameForm^ gameForm, int number, int initialNumber, bool empty) = 0;
+
+    virtual bool IsPuzzleInRightPosition(Object^ object) = 0;
 };

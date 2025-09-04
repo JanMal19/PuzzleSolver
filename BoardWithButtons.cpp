@@ -4,7 +4,6 @@
 
 void BoardWithButtons::CreateBoard(System::Windows::Forms::TableLayoutPanel^ gameMap, GameForm^ gameForm)
 {
-	puzzles.clear();
 
 	gameMap->SuspendLayout();
 
@@ -34,8 +33,6 @@ void BoardWithButtons::CreateBoard(System::Windows::Forms::TableLayoutPanel^ gam
 			bool isEmpty = i == BoardSize - 1 && j == BoardSize - 1;
 
 			Button^ btn = puzzle.CreatePuzzle(gameForm, numbers[index], 1 + index, isEmpty);
-
-			puzzles.push_back(puzzle);
 
 			gameMap->Controls->Add(btn, j, i);
 		}

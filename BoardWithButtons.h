@@ -14,7 +14,6 @@ using namespace PuzzleSolver;
 class BoardWithButtons : public BaseBoard
 {
 private:
-    std::vector<BasePuzzle> puzzles;
 
 public:
 	BoardWithButtons() : BaseBoard(3) {}

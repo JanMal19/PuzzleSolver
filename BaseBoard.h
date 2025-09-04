@@ -21,4 +21,6 @@ public:
     virtual void CreateBoard(System::Windows::Forms::TableLayoutPanel^ panel, GameForm^ gameForm) = 0;
 
     int getBoardSize() const { return BoardSize; }
+
+    void SetSize(int size) { BoardSize = size; }
 };

@@ -26,3 +26,15 @@ Button^ NumberPuzzle::CreatePuzzle(GameForm^ gameForm, int number, int initialNu
 
 	return btn;
 }
+
+bool NumberPuzzle::IsPuzzleInRightPosition(Object^ btn) {
+
+	Button^ objectToButton = dynamic_cast<Button^>(btn);
+
+	if (objectToButton != nullptr) {
+		bool compareTagWithText = objectToButton->Tag != nullptr && objectToButton->Text == objectToButton->Tag->ToString();
+		return compareTagWithText;
+	}
+
+	return false;
+}

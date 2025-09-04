@@ -192,11 +192,8 @@ namespace PuzzleSolver {
 
 		System::Windows::Forms::Button^ clickedButton = nullptr;
 
-		void InitializeGameMap(int size);
-
 	private: 
 		System::Void GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
-
 
 		System::Void GameTimer_Tick(System::Object^ sender, System::EventArgs^ e);
 
@@ -221,6 +218,8 @@ namespace PuzzleSolver {
 		int GetClickedColumn();
 
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
+
+		void InitializeGameMap(int size);
 
 	public:
 		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);

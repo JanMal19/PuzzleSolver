@@ -70,9 +70,6 @@
     <Filter Include="Core\Puzzle\NumberPuzzle">
       <UniqueIdentifier>{6c8b1233-a54c-47dc-a871-e481c618054d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Puzzle\ImagePuzzle">
-      <UniqueIdentifier>{316acadf-2d76-4baa-a72e-83f2622d2d2e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
