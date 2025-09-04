@@ -51,5 +51,10 @@ System::Void StartForm::StartGameButton_Click(System::Object^ sender, System::Ev
 	GameForm^ gameForm = gcnew PuzzleSolver::GameForm(n);
 	gameForm->ShowDialog();
 
-	this->Show();
+	if (gameForm->DialogResult == System::Windows::Forms::DialogResult::OK) {
+		this->Show();
+	}
+	else {
+		this->Close();
+	}
 }

@@ -137,7 +137,7 @@ namespace PuzzleSolver {
 				static_cast<System::Byte>(238)));
 			this->gameSizeUpDown->Location = System::Drawing::Point(15, 126);
 			this->gameSizeUpDown->Margin = System::Windows::Forms::Padding(15);
-			this->gameSizeUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			this->gameSizeUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
 			this->gameSizeUpDown->Name = L"gameSizeUpDown";
 			this->gameSizeUpDown->Size = System::Drawing::Size(305, 29);
 			this->gameSizeUpDown->TabIndex = 5;

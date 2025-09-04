@@ -24,7 +24,7 @@ namespace PuzzleSolver {
 
 	private: System::Windows::Forms::Label^ timeCounterValueLabel;
 	private: System::Windows::Forms::Timer^ gameTimer;
-	private: System::Windows::Forms::Label^ moveCounterLabel;
+
 	private: System::Windows::Forms::Button^ buttonUp;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
@@ -52,7 +52,6 @@ namespace PuzzleSolver {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->timeCounterValueLabel = (gcnew System::Windows::Forms::Label());
 			this->gameTimer = (gcnew System::Windows::Forms::Timer(this->components));
-			this->moveCounterLabel = (gcnew System::Windows::Forms::Label());
 			this->buttonUp = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -100,17 +99,6 @@ namespace PuzzleSolver {
 			// 
 			this->gameTimer->Interval = 1000;
 			this->gameTimer->Tick += gcnew System::EventHandler(this, &GameForm::GameTimer_Tick);
-			// 
-			// moveCounterLabel
-			// 
-			this->moveCounterLabel->AutoSize = true;
-			this->moveCounterLabel->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->moveCounterLabel->Location = System::Drawing::Point(388, 21);
-			this->moveCounterLabel->Name = L"moveCounterLabel";
-			this->moveCounterLabel->Size = System::Drawing::Size(137, 21);
-			this->moveCounterLabel->TabIndex = 4;
-			this->moveCounterLabel->Text = L"Liczba ruchów: 0";
 			// 
 			// buttonUp
 			// 
@@ -182,7 +170,6 @@ namespace PuzzleSolver {
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->buttonUp);
-			this->Controls->Add(this->moveCounterLabel);
 			this->Controls->Add(this->timeCounterValueLabel);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
@@ -201,6 +188,8 @@ namespace PuzzleSolver {
 	private: 
 		int elapsedSeconds = 0;
 
+		int puzzleSize = 0;
+
 		System::Windows::Forms::Button^ clickedButton = nullptr;
 
 		void InitializeGameMap(int size);
@@ -216,6 +205,8 @@ namespace PuzzleSolver {
 		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);
 
 		Button^ FindEmptyButton();
+
+		void CheckWin();
 
 #pragma region Obsługa przycisków sterujących planszą
 

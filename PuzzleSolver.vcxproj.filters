@@ -49,6 +49,15 @@
     <Filter Include="Utils\NumberHelper">
       <UniqueIdentifier>{171a98ba-671d-4994-9ada-e8becd042630}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Puzzle">
+      <UniqueIdentifier>{45197911-4c79-47f1-94c2-e7ed151d7648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\PuzzleBoard">
+      <UniqueIdentifier>{695ea95f-7def-4e34-8c04-dfa34b1522bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\GameHistory">
+      <UniqueIdentifier>{0530c823-37dd-4948-9b7a-a53567905746}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

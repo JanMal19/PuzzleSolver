@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GameForm.h"
 #include "NumberHelper.h"
+#include "FinishForm.h"
 
 using namespace PuzzleSolver;
 
@@ -17,10 +18,15 @@ GameForm::~GameForm() {
 }
 
 System::Void GameForm::GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e){
-
+	if (this->DialogResult != System::Windows::Forms::DialogResult::Abort) {
+		this->DialogResult = System::Windows::Forms::DialogResult::OK;
+	}
 }
 
 void GameForm::InitializeGameMap(int size) {
+
+	puzzleSize = size;
+
 	gameMap->SuspendLayout();
 
 	gameMap->Controls->Clear();
@@ -61,13 +67,15 @@ void GameForm::InitializeGameMap(int size) {
 
 			if (i == size - 1 && j == size - 1) {
 				btn->Text = "";
+				btn->Tag = "";
 			}
 			else {
 				btn->Text = numbers[index].ToString();
+				btn->Tag = (1 + index).ToString();
 				index++;
 			}
 
-			gameMap->Controls->Add(btn, i, j);
+			gameMap->Controls->Add(btn, j, i);
 		}
 	}
 
@@ -125,6 +133,8 @@ void GameForm::SetClickedButtonTextAndColor(Button^ emptyButton) {
 
 		clickedButton = emptyButton;
 		clickedButton->BackColor = System::Drawing::Color::GreenYellow;
+
+		CheckWin();
 	}
 }
 
@@ -174,4 +184,22 @@ System::Void GameForm::LeftButton_Click(System::Object^ sender, System::EventArg
 		Button^ btnLeft = dynamic_cast<Button^>(left);
 		SetClickedButtonTextAndColor(btnLeft);
 	}
+}
+
+void GameForm::CheckWin() {
+	for (int i = 0; i < gameMap->Controls->Count; i++) {
+		 Control^ control = gameMap->Controls[i];
+		 Button^ button = dynamic_cast<Button^>(control);
+		 bool compareTagWithText = button->Tag != nullptr && button->Text == button->Tag->ToString();
+		 if (!compareTagWithText) {
+			 return;
+		 }
+	}
+
+	FinishForm^ finishForm;
+	finishForm = gcnew PuzzleSolver::FinishForm();
+	finishForm->ShowDialog();
+
+	this->DialogResult = finishForm->DialogResult;
+	this->Close();
 }
