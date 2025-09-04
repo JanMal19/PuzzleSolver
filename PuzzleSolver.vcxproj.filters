@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Forms">
+      <UniqueIdentifier>{c7124d0c-2f9a-47d3-a945-ac5e08eb1ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Forms">
+      <UniqueIdentifier>{3a5d552c-d090-4de5-8961-2a63cd6be29c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -26,12 +32,21 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Form1.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="StartForm.h">
+      <Filter>Header Files\Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultForm.h">
+      <Filter>Header Files\Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="GameForm.h">
+      <Filter>Header Files\Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="EndGameForm.h">
+      <Filter>Header Files\Forms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CppCLR_WinFormsProject.cpp">
+    <ClCompile Include="PuzzleSolverProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -40,8 +55,17 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Form1.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="StartForm.cpp">
+      <Filter>Source Files\Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultForm.cpp">
+      <Filter>Source Files\Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="GameForm.cpp">
+      <Filter>Source Files\Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="EndGameForm.cpp">
+      <Filter>Source Files\Forms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
