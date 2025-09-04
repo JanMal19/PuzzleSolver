@@ -32,7 +32,16 @@ void BoardWithButtons::CreateBoard(System::Windows::Forms::TableLayoutPanel^ gam
 
 			bool isEmpty = i == BoardSize - 1 && j == BoardSize - 1;
 
-			Button^ btn = puzzle.CreatePuzzle(gameForm, numbers[index], 1 + index, isEmpty);
+			int randomNumber = 0;
+			if (!isEmpty) {
+				randomNumber = numbers[index];
+				index++;
+			}
+			else {
+				randomNumber = 0;
+			}
+
+			Button^ btn = puzzle.CreatePuzzle(gameForm, randomNumber, 1 + index, isEmpty);
 
 			gameMap->Controls->Add(btn, j, i);
 		}
