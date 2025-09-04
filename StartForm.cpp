@@ -3,6 +3,7 @@
 #include "CreatePlayerForm.h"
 #include "TextDatabase.h"
 #include <msclr/marshal_cppstd.h>
+#include "GameForm.h"
 
 using namespace PuzzleSolver;
 
@@ -37,3 +38,18 @@ System::Void StartForm::CreatePlayerButton_Click(System::Object^ sender, System:
 
 }
 
+System::Void StartForm::StartGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (PlayerComboBox->SelectedItem == nullptr) {
+		MessageBox::Show("Wybierz u¿ytkownika który ma zagraæ.");
+		return;
+	}
+
+	this->Hide();
+
+	int n = Decimal::ToInt32(gameSizeUpDown->Value);
+
+	GameForm^ gameForm = gcnew PuzzleSolver::GameForm(n);
+	gameForm->ShowDialog();
+
+	this->Show();
+}

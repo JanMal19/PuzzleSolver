@@ -40,7 +40,8 @@ namespace PuzzleSolver {
 	private: System::Windows::Forms::ComboBox^ PlayerComboBox;
 	private: System::Windows::Forms::Label^ GameSizeLabel;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: System::Windows::Forms::NumericUpDown^ gameSizeUpDown;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
@@ -64,12 +65,12 @@ namespace PuzzleSolver {
 			this->PlayerComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->GameSizeLabel = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->gameSizeUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gameSizeUpDown))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// IntroGameLabel
@@ -115,32 +116,32 @@ namespace PuzzleSolver {
 			this->GameSizeLabel->Location = System::Drawing::Point(15, 85);
 			this->GameSizeLabel->Margin = System::Windows::Forms::Padding(15, 0, 15, 0);
 			this->GameSizeLabel->Name = L"GameSizeLabel";
-			this->GameSizeLabel->Size = System::Drawing::Size(106, 26);
+			this->GameSizeLabel->Size = System::Drawing::Size(169, 26);
 			this->GameSizeLabel->TabIndex = 4;
-			this->GameSizeLabel->Text = L"GameSize";
+			this->GameSizeLabel->Text = L"Rozmiar planszy";
 			// 
 			// flowLayoutPanel1
 			// 
 			this->flowLayoutPanel1->Controls->Add(this->label1);
 			this->flowLayoutPanel1->Controls->Add(this->PlayerComboBox);
 			this->flowLayoutPanel1->Controls->Add(this->GameSizeLabel);
-			this->flowLayoutPanel1->Controls->Add(this->numericUpDown1);
+			this->flowLayoutPanel1->Controls->Add(this->gameSizeUpDown);
 			this->flowLayoutPanel1->Location = System::Drawing::Point(212, 132);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(347, 181);
 			this->flowLayoutPanel1->TabIndex = 5;
 			// 
-			// numericUpDown1
+			// gameSizeUpDown
 			// 
-			this->numericUpDown1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->gameSizeUpDown->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->numericUpDown1->Location = System::Drawing::Point(15, 126);
-			this->numericUpDown1->Margin = System::Windows::Forms::Padding(15);
-			this->numericUpDown1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
-			this->numericUpDown1->Name = L"numericUpDown1";
-			this->numericUpDown1->Size = System::Drawing::Size(305, 29);
-			this->numericUpDown1->TabIndex = 5;
-			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			this->gameSizeUpDown->Location = System::Drawing::Point(15, 126);
+			this->gameSizeUpDown->Margin = System::Windows::Forms::Padding(15);
+			this->gameSizeUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
+			this->gameSizeUpDown->Name = L"gameSizeUpDown";
+			this->gameSizeUpDown->Size = System::Drawing::Size(305, 29);
+			this->gameSizeUpDown->TabIndex = 5;
+			this->gameSizeUpDown->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 3, 0, 0, 0 });
 			// 
 			// button1
 			// 
@@ -169,6 +170,7 @@ namespace PuzzleSolver {
 			this->button3->TabIndex = 8;
 			this->button3->Text = L"Rozpocznij gre";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &StartForm::StartGameButton_Click);
 			// 
 			// StartForm
 			// 
@@ -190,7 +192,7 @@ namespace PuzzleSolver {
 			this->Load += gcnew System::EventHandler(this, &StartForm::StartForm_Load);
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->flowLayoutPanel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gameSizeUpDown))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -203,5 +205,7 @@ namespace PuzzleSolver {
 	private: System::Void CreatePlayerButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: void LoadPlayersToCombobox();
+
+	private: System::Void StartGameButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -46,6 +46,9 @@
     <Filter Include="Utils\Database">
       <UniqueIdentifier>{e9585d28-daea-4e87-a44e-7405abf5d08d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\NumberHelper">
+      <UniqueIdentifier>{171a98ba-671d-4994-9ada-e8becd042630}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -83,6 +86,9 @@
     <ClInclude Include="TextDatabase.h">
       <Filter>Utils\Database</Filter>
     </ClInclude>
+    <ClInclude Include="NumberHelper.h">
+      <Filter>Utils\NumberHelper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PuzzleSolverProject.cpp">
@@ -117,6 +123,9 @@
     </ClCompile>
     <ClCompile Include="TextDatabase.cpp">
       <Filter>Utils\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberHelper.cpp">
+      <Filter>Utils\NumberHelper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -141,6 +141,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MarshalStringUtils.h" />
+    <ClInclude Include="NumberHelper.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="FinishForm.cpp" />
     <ClCompile Include="GameForm.cpp" />
     <ClCompile Include="MarshalStringUtils.cpp" />
+    <ClCompile Include="NumberHelper.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PuzzleSolverProject.cpp" />
     <ClCompile Include="pch.cpp">
@@ -183,6 +185,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CreatePlayerForm.resx">
       <DependentUpon>CreatePlayerForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameForm.resx">
+      <DependentUpon>GameForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.h</DependentUpon>
