@@ -15,25 +15,10 @@ namespace PuzzleSolver {
 	public ref class FinishForm : public System::Windows::Forms::Form
 	{
 	public:
-		FinishForm(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		FinishForm(void);
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~FinishForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
+		~FinishForm();
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ GameTimeLabel;
@@ -117,14 +102,8 @@ namespace PuzzleSolver {
 		}
 #pragma endregion
 	private: 
-		System::Void EndGame_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->DialogResult = System::Windows::Forms::DialogResult::Abort;
-		this->Close();
-	}
+		System::Void EndGame_Click(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void PlayAgain_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->DialogResult = System::Windows::Forms::DialogResult::OK;
-		this->Close();
-	}
+		System::Void PlayAgain_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

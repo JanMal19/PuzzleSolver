@@ -210,8 +210,6 @@ namespace PuzzleSolver {
 
 		void CheckWin();
 
-#pragma region Obsługa przycisków sterujących planszą
-
 		System::Void UpButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 		System::Void DownButton_Click(System::Object^ sender, System::EventArgs^ e);
@@ -225,7 +223,5 @@ namespace PuzzleSolver {
 		int GetClickedColumn();
 
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
-
-#pragma endregion
 };
 }
