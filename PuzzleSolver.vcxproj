@@ -80,6 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -139,7 +140,9 @@
     <ClInclude Include="GameForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MarshalStringUtils.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResultForm.h">
       <FileType>CppForm</FileType>
@@ -147,12 +150,15 @@
     <ClInclude Include="StartForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TextDatabase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CreatePlayerForm.cpp" />
     <ClCompile Include="FinishForm.cpp" />
     <ClCompile Include="GameForm.cpp" />
+    <ClCompile Include="MarshalStringUtils.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PuzzleSolverProject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -162,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="ResultForm.cpp" />
     <ClCompile Include="StartForm.cpp" />
+    <ClCompile Include="TextDatabase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -172,6 +179,14 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CreatePlayerForm.resx">
+      <DependentUpon>CreatePlayerForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

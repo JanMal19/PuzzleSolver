@@ -37,6 +37,15 @@
     <Filter Include="UI\ResultForm">
       <UniqueIdentifier>{7907d430-b9cd-4cc4-9a6e-b6acd821aa4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Player">
+      <UniqueIdentifier>{b3f834ae-86cc-4c9c-a5b8-0de320ac966a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\MarshalString">
+      <UniqueIdentifier>{a3ddc49b-d715-4565-9b7f-5676b609ec70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Database">
+      <UniqueIdentifier>{e9585d28-daea-4e87-a44e-7405abf5d08d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -65,6 +74,15 @@
     <ClInclude Include="ResultForm.h">
       <Filter>UI\ResultForm</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Core\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MarshalStringUtils.h">
+      <Filter>Utils\MarshalString</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDatabase.h">
+      <Filter>Utils\Database</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PuzzleSolverProject.cpp">
@@ -90,6 +108,15 @@
     </ClCompile>
     <ClCompile Include="ResultForm.cpp">
       <Filter>UI\ResultForm</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Core\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MarshalStringUtils.cpp">
+      <Filter>Utils\MarshalString</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDatabase.cpp">
+      <Filter>Utils\Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

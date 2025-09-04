@@ -150,6 +150,7 @@ namespace PuzzleSolver {
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Stwórz Gracza";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &StartForm::CreatePlayerButton_Click);
 			// 
 			// button2
 			// 
@@ -195,7 +196,12 @@ namespace PuzzleSolver {
 
 		}
 #pragma endregion
-	private: System::Void StartForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	};
+
+
+	private: System::Void StartForm_Load(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void CreatePlayerButton_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: void LoadPlayersToCombobox();
+};
 }
