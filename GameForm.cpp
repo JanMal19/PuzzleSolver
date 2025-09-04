@@ -106,6 +106,12 @@ System::Void GameForm::PuzzleClick(System::Object^ sender, System::EventArgs^ e)
 
 }
 
+
+System::Void GameForm::RestartGame_Click(System::Object^ sender, System::EventArgs^ e) {
+	InitializeGameMap(puzzleSize);
+	elapsedSeconds = 0;
+}
+
 Button^ GameForm::FindEmptyButton()
 {
 	for each (Control ^ ctrl in this->gameMap->Controls)

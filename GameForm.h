@@ -91,9 +91,8 @@ namespace PuzzleSolver {
 				static_cast<System::Byte>(238)));
 			this->timeCounterValueLabel->Location = System::Drawing::Point(12, 21);
 			this->timeCounterValueLabel->Name = L"timeCounterValueLabel";
-			this->timeCounterValueLabel->Size = System::Drawing::Size(20, 22);
+			this->timeCounterValueLabel->Size = System::Drawing::Size(0, 22);
 			this->timeCounterValueLabel->TabIndex = 3;
-			this->timeCounterValueLabel->Text = L"0";
 			// 
 			// gameTimer
 			// 
@@ -157,6 +156,7 @@ namespace PuzzleSolver {
 			this->button5->TabIndex = 10;
 			this->button5->Text = L"Od nowa";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &GameForm::RestartGame_Click);
 			// 
 			// GameForm
 			// 
@@ -204,6 +204,8 @@ namespace PuzzleSolver {
 
 		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);
 
+		System::Void RestartGame_Click(System::Object^ sender, System::EventArgs^ e);
+
 		Button^ FindEmptyButton();
 
 		void CheckWin();
@@ -225,7 +227,5 @@ namespace PuzzleSolver {
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
 
 #pragma endregion
-
-
 };
 }
