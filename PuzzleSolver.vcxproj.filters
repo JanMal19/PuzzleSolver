@@ -52,11 +52,26 @@
     <Filter Include="Core\Puzzle">
       <UniqueIdentifier>{45197911-4c79-47f1-94c2-e7ed151d7648}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\PuzzleBoard">
-      <UniqueIdentifier>{695ea95f-7def-4e34-8c04-dfa34b1522bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\GameHistory">
       <UniqueIdentifier>{0530c823-37dd-4948-9b7a-a53567905746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\PuzzleBoards">
+      <UniqueIdentifier>{695ea95f-7def-4e34-8c04-dfa34b1522bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\PuzzleBoards\BaseBoard">
+      <UniqueIdentifier>{3b61e8a1-b963-471d-8e87-30d9b9c3e0e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\PuzzleBoards\BoardWithButtons">
+      <UniqueIdentifier>{561f9bdd-94a5-4881-b4f8-1c9829126619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Puzzle\BasePuzzle">
+      <UniqueIdentifier>{5c2ba624-9f8d-4778-bbed-cee8362bb075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Puzzle\NumberPuzzle">
+      <UniqueIdentifier>{6c8b1233-a54c-47dc-a871-e481c618054d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Puzzle\ImagePuzzle">
+      <UniqueIdentifier>{316acadf-2d76-4baa-a72e-83f2622d2d2e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +113,18 @@
     <ClInclude Include="NumberHelper.h">
       <Filter>Utils\NumberHelper</Filter>
     </ClInclude>
+    <ClInclude Include="BaseBoard.h">
+      <Filter>Core\PuzzleBoards\BaseBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardWithButtons.h">
+      <Filter>Core\PuzzleBoards\BoardWithButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePuzzle.h">
+      <Filter>Core\Puzzle\BasePuzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberPuzzle.h">
+      <Filter>Core\Puzzle\NumberPuzzle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PuzzleSolverProject.cpp">
@@ -135,6 +162,12 @@
     </ClCompile>
     <ClCompile Include="NumberHelper.cpp">
       <Filter>Utils\NumberHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardWithButtons.cpp">
+      <Filter>Core\PuzzleBoards\BoardWithButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberPuzzle.cpp">
+      <Filter>Core\Puzzle\NumberPuzzle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

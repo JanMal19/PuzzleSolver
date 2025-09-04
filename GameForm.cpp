@@ -2,6 +2,7 @@
 #include "GameForm.h"
 #include "NumberHelper.h"
 #include "FinishForm.h"
+#include "BoardWithButtons.h"
 
 using namespace PuzzleSolver;
 
@@ -24,62 +25,9 @@ System::Void GameForm::GameForm_Closed(System::Object^ sender, System::Windows::
 }
 
 void GameForm::InitializeGameMap(int size) {
-
 	puzzleSize = size;
-
-	gameMap->SuspendLayout();
-
-	gameMap->Controls->Clear();
-
-	gameMap->ColumnStyles->Clear();
-
-	gameMap->RowStyles->Clear();
-
-	gameMap->ColumnCount = size;
-
-	gameMap->RowCount = size;
-
-	for (int i = 0; i < size; i++)
-	{
-		gameMap->ColumnStyles->Add(gcnew ColumnStyle(SizeType::Percent, 100.0f / size));
-	}
-
-	// wiersze
-	for (int i = 0; i < size; i++)
-	{
-		gameMap->RowStyles->Add(
-			gcnew RowStyle(SizeType::Percent, 100.0f / size)
-		);
-	}
-
-	std::vector<int> numbers = NumberHelper::generateShuffledNumbers(size);
-	int index = 0;
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			Button^ btn = gcnew Button();
-
-			btn->Click += gcnew System::EventHandler(this, &GameForm::PuzzleClick);
-
-			btn->Dock = DockStyle::Fill;
-			btn->Margin = System::Windows::Forms::Padding(2);
-			btn->FlatStyle = FlatStyle::Flat;
-			btn->BackColor = System::Drawing::Color::White;
-
-			if (i == size - 1 && j == size - 1) {
-				btn->Text = "";
-				btn->Tag = "";
-			}
-			else {
-				btn->Text = numbers[index].ToString();
-				btn->Tag = (1 + index).ToString();
-				index++;
-			}
-
-			gameMap->Controls->Add(btn, j, i);
-		}
-	}
-
-	gameMap->ResumeLayout();
+	BoardWithButtons boardWithButtons = BoardWithButtons(size);
+	boardWithButtons.CreateBoard(gameMap, this);
 }
 
 

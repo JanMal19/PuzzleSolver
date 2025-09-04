@@ -202,8 +202,6 @@ namespace PuzzleSolver {
 
 		System::Void GameForm_Load(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);
-
 		System::Void RestartGame_Click(System::Object^ sender, System::EventArgs^ e);
 
 		Button^ FindEmptyButton();
@@ -223,5 +221,8 @@ namespace PuzzleSolver {
 		int GetClickedColumn();
 
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
+
+	public:
+		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);
 };
 }
