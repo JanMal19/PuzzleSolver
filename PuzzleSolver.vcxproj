@@ -130,7 +130,10 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EndGameForm.h">
+    <ClInclude Include="CreatePlayerForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FinishForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GameForm.h">
@@ -147,9 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="PuzzleSolverProject.cpp" />
-    <ClCompile Include="EndGameForm.cpp" />
+    <ClCompile Include="CreatePlayerForm.cpp" />
+    <ClCompile Include="FinishForm.cpp" />
     <ClCompile Include="GameForm.cpp" />
+    <ClCompile Include="PuzzleSolverProject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -168,11 +172,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="StartForm.resx">
-      <DependentUpon>StartForm.h</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

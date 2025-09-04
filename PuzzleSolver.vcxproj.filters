@@ -13,11 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Forms">
-      <UniqueIdentifier>{c7124d0c-2f9a-47d3-a945-ac5e08eb1ee6}</UniqueIdentifier>
+    <Filter Include="UI">
+      <UniqueIdentifier>{ba632b6c-1399-434c-a96d-a4546c27702a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Forms">
-      <UniqueIdentifier>{3a5d552c-d090-4de5-8961-2a63cd6be29c}</UniqueIdentifier>
+    <Filter Include="Core">
+      <UniqueIdentifier>{f0f9f92a-29ec-4602-b989-64202a351830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{fc05b07e-28cc-4f79-ba41-8deb885e640d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\StartForm">
+      <UniqueIdentifier>{68348bba-33a2-43ac-87e5-a48e6f26f45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\GameForm">
+      <UniqueIdentifier>{dac897b1-0238-41d0-a613-c113a72daf33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\CreatePlayerForm">
+      <UniqueIdentifier>{70d83d83-470a-416c-93d8-02b673225a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\FinishForm">
+      <UniqueIdentifier>{6495a2fb-e105-41c7-9e39-35b433e25efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ResultForm">
+      <UniqueIdentifier>{7907d430-b9cd-4cc4-9a6e-b6acd821aa4d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,16 +51,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StartForm.h">
-      <Filter>Header Files\Forms</Filter>
+      <Filter>UI\StartForm</Filter>
     </ClInclude>
-    <ClInclude Include="ResultForm.h">
-      <Filter>Header Files\Forms</Filter>
+    <ClInclude Include="CreatePlayerForm.h">
+      <Filter>UI\CreatePlayerForm</Filter>
     </ClInclude>
     <ClInclude Include="GameForm.h">
-      <Filter>Header Files\Forms</Filter>
+      <Filter>UI\GameForm</Filter>
     </ClInclude>
-    <ClInclude Include="EndGameForm.h">
-      <Filter>Header Files\Forms</Filter>
+    <ClInclude Include="FinishForm.h">
+      <Filter>UI\FinishForm</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultForm.h">
+      <Filter>UI\ResultForm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,16 +77,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StartForm.cpp">
-      <Filter>Source Files\Forms</Filter>
+      <Filter>UI\StartForm</Filter>
     </ClCompile>
-    <ClCompile Include="ResultForm.cpp">
-      <Filter>Source Files\Forms</Filter>
+    <ClCompile Include="CreatePlayerForm.cpp">
+      <Filter>UI\CreatePlayerForm</Filter>
     </ClCompile>
     <ClCompile Include="GameForm.cpp">
-      <Filter>Source Files\Forms</Filter>
+      <Filter>UI\GameForm</Filter>
     </ClCompile>
-    <ClCompile Include="EndGameForm.cpp">
-      <Filter>Source Files\Forms</Filter>
+    <ClCompile Include="FinishForm.cpp">
+      <Filter>UI\FinishForm</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultForm.cpp">
+      <Filter>UI\ResultForm</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -10,12 +10,12 @@ namespace PuzzleSolver {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for EndGameForm
+	/// Summary for FinishForm
 	/// </summary>
-	public ref class EndGameForm : public System::Windows::Forms::Form
+	public ref class FinishForm : public System::Windows::Forms::Form
 	{
 	public:
-		EndGameForm(void)
+		FinishForm(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace PuzzleSolver {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~EndGameForm()
+		~FinishForm()
 		{
 			if (components)
 			{
@@ -50,7 +50,7 @@ namespace PuzzleSolver {
 		{
 			this->components = gcnew System::ComponentModel::Container();
 			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"EndGameForm";
+			this->Text = L"FinishForm";
 			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}
