@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+#include "PuzzleButton.h"
+#include "PuzzleButtonWrapper.h"
+
 namespace PuzzleSolver {
 
 	using namespace System;
@@ -14,6 +17,9 @@ namespace PuzzleSolver {
 	/// </summary>
 	public ref class GameForm : public System::Windows::Forms::Form
 	{
+	private:
+		System::Collections::Generic::List<PuzzleButtonWrapper^>^ puzzleButtons;
+
 	public:
 		GameForm(int size);
 
@@ -192,6 +198,9 @@ namespace PuzzleSolver {
 
 		System::Windows::Forms::Button^ clickedButton = nullptr;
 
+		// PuzzleBoard* puzzleBoard;
+
+
 	private: 
 		System::Void GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
 
@@ -213,6 +222,8 @@ namespace PuzzleSolver {
 
 		System::Void LeftButton_Click(System::Object^ sender, System::EventArgs^ e);
 
+		System::Void MoveClickedButton(int deltaRow, int deltaCol);
+
 		int GetClickedRow();
 
 		int GetClickedColumn();
@@ -220,6 +231,8 @@ namespace PuzzleSolver {
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
 
 		void InitializeGameMap(int size);
+
+		PuzzleButtonWrapper^ FindWrapperByPuzzle(NumberPuzzle* target);
 
 	public:
 		System::Void PuzzleClick(System::Object^ sender, System::EventArgs^ e);

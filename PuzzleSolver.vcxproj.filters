@@ -22,21 +22,6 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{fc05b07e-28cc-4f79-ba41-8deb885e640d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\StartForm">
-      <UniqueIdentifier>{68348bba-33a2-43ac-87e5-a48e6f26f45e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\GameForm">
-      <UniqueIdentifier>{dac897b1-0238-41d0-a613-c113a72daf33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\CreatePlayerForm">
-      <UniqueIdentifier>{70d83d83-470a-416c-93d8-02b673225a28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\FinishForm">
-      <UniqueIdentifier>{6495a2fb-e105-41c7-9e39-35b433e25efd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\ResultForm">
-      <UniqueIdentifier>{7907d430-b9cd-4cc4-9a6e-b6acd821aa4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Player">
       <UniqueIdentifier>{b3f834ae-86cc-4c9c-a5b8-0de320ac966a}</UniqueIdentifier>
     </Filter>
@@ -58,17 +43,53 @@
     <Filter Include="Core\PuzzleBoards">
       <UniqueIdentifier>{695ea95f-7def-4e34-8c04-dfa34b1522bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\PuzzleBoards\BaseBoard">
-      <UniqueIdentifier>{3b61e8a1-b963-471d-8e87-30d9b9c3e0e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\PuzzleBoards\BoardWithButtons">
-      <UniqueIdentifier>{561f9bdd-94a5-4881-b4f8-1c9829126619}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Puzzle\BasePuzzle">
       <UniqueIdentifier>{5c2ba624-9f8d-4778-bbed-cee8362bb075}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\PuzzleBoards\PuzzleBoard">
+      <UniqueIdentifier>{561f9bdd-94a5-4881-b4f8-1c9829126619}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Puzzle\NumberPuzzle">
-      <UniqueIdentifier>{6c8b1233-a54c-47dc-a871-e481c618054d}</UniqueIdentifier>
+      <UniqueIdentifier>{8cea89c5-f947-4399-8d45-0649c1bbff21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms">
+      <UniqueIdentifier>{0f255704-cfe1-449f-b5ae-e34875737ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms\StartForm">
+      <UniqueIdentifier>{68348bba-33a2-43ac-87e5-a48e6f26f45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms\ResultForm">
+      <UniqueIdentifier>{7907d430-b9cd-4cc4-9a6e-b6acd821aa4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms\GameForm">
+      <UniqueIdentifier>{dac897b1-0238-41d0-a613-c113a72daf33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms\FinishForm">
+      <UniqueIdentifier>{6495a2fb-e105-41c7-9e39-35b433e25efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Forms\CreatePlayerForm">
+      <UniqueIdentifier>{70d83d83-470a-416c-93d8-02b673225a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Buttons">
+      <UniqueIdentifier>{683040d1-d98a-4107-9d77-c773203eef23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Buttons\PuzzleButton">
+      <UniqueIdentifier>{d5558f1f-8c24-46e8-992d-3aafd47a2059}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Buttons\PuzzleButtonWraper">
+      <UniqueIdentifier>{dbdea301-2900-4844-946a-882e9579a2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Buttons\NativeWrapper">
+      <UniqueIdentifier>{a0baba72-27f0-452a-a6fa-9ae8db4e0e27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\PointerConverter">
+      <UniqueIdentifier>{e3284d77-09b4-47e2-8b5d-2e1e055b5001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Puzzle\TemplatePuzzle">
+      <UniqueIdentifier>{549b4a22-00a7-43cd-bb3e-2e2345b576fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Puzzle\NumberPuzzleFromTemplate">
+      <UniqueIdentifier>{cf8bc9ae-1300-434b-aeb7-7686b048b622}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,19 +105,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StartForm.h">
-      <Filter>UI\StartForm</Filter>
+      <Filter>UI\Forms\StartForm</Filter>
     </ClInclude>
     <ClInclude Include="CreatePlayerForm.h">
-      <Filter>UI\CreatePlayerForm</Filter>
+      <Filter>UI\Forms\CreatePlayerForm</Filter>
     </ClInclude>
     <ClInclude Include="GameForm.h">
-      <Filter>UI\GameForm</Filter>
+      <Filter>UI\Forms\GameForm</Filter>
     </ClInclude>
     <ClInclude Include="FinishForm.h">
-      <Filter>UI\FinishForm</Filter>
+      <Filter>UI\Forms\FinishForm</Filter>
     </ClInclude>
     <ClInclude Include="ResultForm.h">
-      <Filter>UI\ResultForm</Filter>
+      <Filter>UI\Forms\ResultForm</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Core\Player</Filter>
@@ -110,17 +131,32 @@
     <ClInclude Include="NumberHelper.h">
       <Filter>Utils\NumberHelper</Filter>
     </ClInclude>
-    <ClInclude Include="BaseBoard.h">
-      <Filter>Core\PuzzleBoards\BaseBoard</Filter>
+    <ClInclude Include="PuzzleBoard.h">
+      <Filter>Core\PuzzleBoards\PuzzleBoard</Filter>
     </ClInclude>
-    <ClInclude Include="BoardWithButtons.h">
-      <Filter>Core\PuzzleBoards\BoardWithButtons</Filter>
-    </ClInclude>
-    <ClInclude Include="BasePuzzle.h">
+    <ClInclude Include="Puzzle.h">
       <Filter>Core\Puzzle\BasePuzzle</Filter>
     </ClInclude>
     <ClInclude Include="NumberPuzzle.h">
       <Filter>Core\Puzzle\NumberPuzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleButton.h">
+      <Filter>UI\Buttons\PuzzleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleButtonWrapper.h">
+      <Filter>UI\Buttons\PuzzleButtonWraper</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeWrapper.h">
+      <Filter>UI\Buttons\NativeWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="PointerConverter.h">
+      <Filter>Utils\PointerConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplatePuzzle.h">
+      <Filter>Core\Puzzle\TemplatePuzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberPuzzleT.h">
+      <Filter>Core\Puzzle\NumberPuzzleFromTemplate</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,19 +170,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StartForm.cpp">
-      <Filter>UI\StartForm</Filter>
+      <Filter>UI\Forms\StartForm</Filter>
     </ClCompile>
     <ClCompile Include="CreatePlayerForm.cpp">
-      <Filter>UI\CreatePlayerForm</Filter>
+      <Filter>UI\Forms\CreatePlayerForm</Filter>
     </ClCompile>
     <ClCompile Include="GameForm.cpp">
-      <Filter>UI\GameForm</Filter>
+      <Filter>UI\Forms\GameForm</Filter>
     </ClCompile>
     <ClCompile Include="FinishForm.cpp">
-      <Filter>UI\FinishForm</Filter>
+      <Filter>UI\Forms\FinishForm</Filter>
     </ClCompile>
     <ClCompile Include="ResultForm.cpp">
-      <Filter>UI\ResultForm</Filter>
+      <Filter>UI\Forms\ResultForm</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Core\Player</Filter>
@@ -160,11 +196,17 @@
     <ClCompile Include="NumberHelper.cpp">
       <Filter>Utils\NumberHelper</Filter>
     </ClCompile>
-    <ClCompile Include="BoardWithButtons.cpp">
-      <Filter>Core\PuzzleBoards\BoardWithButtons</Filter>
+    <ClCompile Include="PuzzleBoard.cpp">
+      <Filter>Core\PuzzleBoards\PuzzleBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle.cpp">
+      <Filter>Core\Puzzle\BasePuzzle</Filter>
     </ClCompile>
     <ClCompile Include="NumberPuzzle.cpp">
       <Filter>Core\Puzzle\NumberPuzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="PuzzleButton.cpp">
+      <Filter>UI\Buttons\PuzzleButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

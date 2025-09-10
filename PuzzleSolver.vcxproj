@@ -131,9 +131,12 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseBoard.h" />
-    <ClInclude Include="BasePuzzle.h" />
-    <ClInclude Include="BoardWithButtons.h" />
+    <ClInclude Include="NativeWrapper.h" />
+    <ClInclude Include="NumberPuzzle.h" />
+    <ClInclude Include="NumberPuzzleT.h" />
+    <ClInclude Include="PointerConverter.h" />
+    <ClInclude Include="Puzzle.h" />
+    <ClInclude Include="PuzzleBoard.h" />
     <ClInclude Include="CreatePlayerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -145,9 +148,10 @@
     </ClInclude>
     <ClInclude Include="MarshalStringUtils.h" />
     <ClInclude Include="NumberHelper.h" />
-    <ClInclude Include="NumberPuzzle.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PuzzleButton.h" />
+    <ClInclude Include="PuzzleButtonWrapper.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResultForm.h">
       <FileType>CppForm</FileType>
@@ -155,18 +159,21 @@
     <ClInclude Include="StartForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TemplatePuzzle.h" />
     <ClInclude Include="TextDatabase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="BoardWithButtons.cpp" />
+    <ClCompile Include="NumberPuzzle.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
+    <ClCompile Include="PuzzleBoard.cpp" />
     <ClCompile Include="CreatePlayerForm.cpp" />
     <ClCompile Include="FinishForm.cpp" />
     <ClCompile Include="GameForm.cpp" />
     <ClCompile Include="MarshalStringUtils.cpp" />
     <ClCompile Include="NumberHelper.cpp" />
-    <ClCompile Include="NumberPuzzle.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PuzzleButton.cpp" />
     <ClCompile Include="PuzzleSolverProject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -4,7 +4,6 @@
 #include "Player.h"
 
 
-// Konstruktor
 Player::Player(const std::string& name) : name(name) {}
 
 std::string Player::getName() const {

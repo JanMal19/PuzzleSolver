@@ -1,24 +1,22 @@
 #pragma once
 
-#include "pch.h"
-#include "BasePuzzle.h"
-#include "GameForm.h"
-#include <vector>
+#include "Puzzle.h"
+#include <string>
 
-using namespace System::Windows::Forms;
-using namespace PuzzleSolver;
+using namespace std;
 
+public class NumberPuzzle : public Puzzle {
+protected:
+	bool isEmpty;
+public: 
+	NumberPuzzle(int tPosition, int cPosition, bool _isEmpty)
+		: Puzzle(tPosition, cPosition) , isEmpty(_isEmpty){}
 
-class NumberPuzzle : public BasePuzzle
-{
-private:
-    int currentNumber;
-    int initialNumber;
+	virtual ~NumberPuzzle() {}
 
-public:
-    NumberPuzzle() : BasePuzzle() {}
+	virtual string Draw() override;
 
-    virtual Button^ CreatePuzzle(GameForm^ gameForm, int number, int initialNumber, bool empty) override;
+	inline bool IsEmpty() { return isEmpty; }
 
-    virtual bool IsPuzzleInRightPosition(Object^ object) override;
+	inline void SetIsEmpty(bool _isEmpty) { isEmpty = _isEmpty; }
 };

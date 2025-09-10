@@ -2,7 +2,8 @@
 #include "GameForm.h"
 #include "NumberHelper.h"
 #include "FinishForm.h"
-#include "BoardWithButtons.h"
+#include "PuzzleButton.h"
+#include "NumberPuzzle.h"
 
 using namespace PuzzleSolver;
 
@@ -18,16 +19,66 @@ GameForm::~GameForm() {
 	}
 }
 
-System::Void GameForm::GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e){
+System::Void GameForm::GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	if (this->DialogResult != System::Windows::Forms::DialogResult::Abort) {
 		this->DialogResult = System::Windows::Forms::DialogResult::OK;
 	}
 }
 
 void GameForm::InitializeGameMap(int size) {
+	puzzleButtons = gcnew System::Collections::Generic::List<PuzzleButtonWrapper^>();
+
 	puzzleSize = size;
-	BoardWithButtons boardWithButtons = BoardWithButtons(size);
-	boardWithButtons.CreateBoard(gameMap, this);
+
+	gameMap->SuspendLayout();
+
+	gameMap->Controls->Clear();
+
+	gameMap->ColumnStyles->Clear();
+
+	gameMap->RowStyles->Clear();
+
+	gameMap->ColumnCount = size;
+
+	gameMap->RowCount = size;
+
+	for (int i = 0; i < size; i++)
+	{
+		gameMap->ColumnStyles->Add(gcnew ColumnStyle(SizeType::Percent, 100.0f / size));
+		gameMap->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 100.0f / size));
+	}
+
+	std::vector<int> numbers = NumberHelper::generateShuffledNumbers(size);
+
+	int index = 0;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			bool isEmpty = i == size - 1 && j == size - 1;
+
+			int randomNumber = 0;
+			if (!isEmpty) {
+				randomNumber = numbers[index];
+			}
+			else {
+				randomNumber = size * size;
+			}
+			index++;
+
+			NumberPuzzle* nativePuzzle = new NumberPuzzle(index, randomNumber, isEmpty);
+
+			PuzzleButton* puzzleButton = new PuzzleButton(nativePuzzle);
+
+			PuzzleButtonWrapper^ wrapper = gcnew PuzzleButtonWrapper(puzzleButton);
+
+			wrapper->ButtonControl->Click += gcnew System::EventHandler(this, &GameForm::PuzzleClick);
+
+			puzzleButtons->Add(wrapper);
+
+			gameMap->Controls->Add(wrapper->ButtonControl, j, i);
+		}
+	}
+
+	gameMap->ResumeLayout();
 }
 
 
@@ -79,12 +130,53 @@ int GameForm::GetClickedColumn() {
 	return gameMap->GetColumn(clickedButton);
 }
 
-void GameForm::SetClickedButtonTextAndColor(Button^ emptyButton) {
-	if (emptyButton != nullptr && emptyButton->Text == "") {
-		emptyButton->Text = clickedButton->Text;
-		clickedButton->Text = "";
-		clickedButton->BackColor = System::Drawing::Color::White;
+PuzzleButtonWrapper^ GameForm::FindWrapperByPuzzle(NumberPuzzle* target)
+{
+	for each (PuzzleButtonWrapper ^ wrapper in puzzleButtons)
+	{
+		PuzzleButton* nativePb = wrapper->GetNative();
+		Puzzle* puzzle = nativePb->getPuzzle();
 
+		if (puzzle == target) {
+			return wrapper;
+		}
+	}
+	return nullptr;
+}
+
+void GameForm::SetClickedButtonTextAndColor(Button^ emptyButton) {
+	// Emptu Button - jest to obecnie pusty przycisk - tam chcemy przenieœæ obecnie wybrany puzzel
+	if (emptyButton != nullptr) {
+
+		System::IntPtr ptr = safe_cast<System::IntPtr>(clickedButton->Tag); // klikniêty puzzel
+
+		NumberPuzzle* puzzle = static_cast<NumberPuzzle*>(ptr.ToPointer());
+
+		// Klikneliœmy pusty puzzel
+		if (puzzle->IsEmpty())
+			return;
+
+		System::IntPtr ptrEmpty = safe_cast<System::IntPtr>(emptyButton->Tag);
+
+		NumberPuzzle* puzzleEmpty = static_cast<NumberPuzzle*>(ptrEmpty.ToPointer());
+
+		int puzzleEmptyPosition = puzzleEmpty->GetCurrentPosition();
+		puzzleEmpty->SetCurrentPosition(puzzle->GetCurrentPosition());
+		puzzle->SetCurrentPosition(puzzleEmptyPosition);
+
+		puzzleEmpty->SetIsEmpty(false);
+		puzzle->SetIsEmpty(true);
+
+
+		PuzzleButtonWrapper^ puzzleWraper = FindWrapperByPuzzle(puzzle);
+		puzzleWraper->GetNative()->UpdateText();
+
+		PuzzleButtonWrapper^ puzzleEmptyWraper = FindWrapperByPuzzle(puzzleEmpty);
+		puzzleEmptyWraper->GetNative()->UpdateText();
+
+
+		//// Aktualizacja kolorów
+		clickedButton->BackColor = System::Drawing::Color::White;
 		clickedButton = emptyButton;
 		clickedButton->BackColor = System::Drawing::Color::GreenYellow;
 
@@ -93,61 +185,48 @@ void GameForm::SetClickedButtonTextAndColor(Button^ emptyButton) {
 }
 
 System::Void GameForm::UpButton_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	int row = GetClickedRow();
-	int col = GetClickedColumn();
-
-	if (row > 0) {
-		Control^ above = gameMap->GetControlFromPosition(col, row - 1);
-		Button^ btnAbove = dynamic_cast<Button^>(above);
-		SetClickedButtonTextAndColor(btnAbove);
-	}
-
+	MoveClickedButton(-1, 0);
 }
 
 System::Void GameForm::DownButton_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	int row = GetClickedRow();
-	int col = GetClickedColumn();
-
-	if (row < gameMap->RowCount - 1) {
-		Control^ below = gameMap->GetControlFromPosition(col, row + 1);
-		Button^ btnBelow = dynamic_cast<Button^>(below);
-		SetClickedButtonTextAndColor(btnBelow);
-	}
-
+	MoveClickedButton(1, 0);
 }
 
 System::Void GameForm::RightButton_Clicked(System::Object^ sender, System::EventArgs^ e) {
-	int row = GetClickedRow();
-	int col = GetClickedColumn();
-
-	if (col < gameMap->ColumnCount - 1) {
-		Control^ right = gameMap->GetControlFromPosition(col + 1, row);
-		Button^ btnRight = dynamic_cast<Button^>(right);
-		SetClickedButtonTextAndColor(btnRight);
-	}
+	MoveClickedButton(0, 1);
 }
 
 System::Void GameForm::LeftButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	MoveClickedButton(0, -1);
+}
+
+System::Void GameForm::MoveClickedButton(int deltaRow, int deltaCol)
+{
 	int row = gameMap->GetRow(clickedButton);
 	int col = gameMap->GetColumn(clickedButton);
 
-	if (col > 0) {
-		Control^ left = gameMap->GetControlFromPosition(col - 1, row);
-		Button^ btnLeft = dynamic_cast<Button^>(left);
-		SetClickedButtonTextAndColor(btnLeft);
+	int newRow = row + deltaRow;
+	int newCol = col + deltaCol;
+
+	if (newRow >= 0 && newRow < gameMap->RowCount &&
+		newCol >= 0 && newCol < gameMap->ColumnCount)
+	{
+		Control^ ctrl = gameMap->GetControlFromPosition(newCol, newRow);
+		Button^ btn = dynamic_cast<Button^>(ctrl);
+		SetClickedButtonTextAndColor(btn);
 	}
 }
 
 void GameForm::CheckWin() {
-	for (int i = 0; i < gameMap->Controls->Count; i++) {
-		 Control^ control = gameMap->Controls[i];
-		 Button^ button = dynamic_cast<Button^>(control);
-		 bool compareTagWithText = button->Tag != nullptr && button->Text == button->Tag->ToString();
-		 if (!compareTagWithText) {
-			 return;
-		 }
+	for each (PuzzleButtonWrapper ^ wrapper in puzzleButtons)
+	{
+		PuzzleButton* nativePb = wrapper->GetNative();
+		Puzzle* puzzle = nativePb->getPuzzle();
+
+		if (!puzzle->IsPuzzleInRightPosition())
+		{
+			return;
+		}
 	}
 
 	FinishForm^ finishForm;

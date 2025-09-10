@@ -1,40 +1,14 @@
-#pragma once
-
 #include "pch.h"
-#include "NumberPuzzle.h";
+#include "NumberPuzzle.h"
 
-using namespace PuzzleSolver;
+using namespace std;
 
-Button^ NumberPuzzle::CreatePuzzle(GameForm^ gameForm, int number, int initialNumber, bool empty) {
-	Button^ btn = gcnew Button();
-
-	btn->Click += gcnew System::EventHandler(gameForm, &GameForm::PuzzleClick);
-
-	btn->Dock = DockStyle::Fill;
-	btn->Margin = System::Windows::Forms::Padding(2);
-	btn->FlatStyle = FlatStyle::Flat;
-	btn->BackColor = System::Drawing::Color::White;
-
-	if (empty) {
-		btn->Text = "";
-		btn->Tag = "";
+string NumberPuzzle::Draw()
+{
+	if (isEmpty) {
+		return "";
 	}
 	else {
-		btn->Text = number.ToString();
-		btn->Tag = initialNumber.ToString();
+		return "[ " + std::to_string(currentPosition) + " ]";
 	}
-
-	return btn;
-}
-
-bool NumberPuzzle::IsPuzzleInRightPosition(Object^ btn) {
-
-	Button^ objectToButton = dynamic_cast<Button^>(btn);
-
-	if (objectToButton != nullptr) {
-		bool compareTagWithText = objectToButton->Tag != nullptr && objectToButton->Text == objectToButton->Tag->ToString();
-		return compareTagWithText;
-	}
-
-	return false;
 }
