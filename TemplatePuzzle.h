@@ -12,7 +12,7 @@ public:
     TemplatePuzzle(const T& tPosition, const T& cPosition)
         : targetPosition(tPosition), currentPosition(cPosition) {}
 
-    virtual ~TempaltePuzzle() {}
+    virtual ~TemplatePuzzle() {}
 
     bool IsPuzzleInRightPosition() const {
         return targetPosition == currentPosition;

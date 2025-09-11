@@ -4,12 +4,19 @@
 #include "FinishForm.h"
 #include "PuzzleButton.h"
 #include "NumberPuzzle.h"
+#include "Game.h"
 
 using namespace PuzzleSolver;
 
-GameForm::GameForm(int size) {
+GameForm::GameForm(Game* _game) {
 	InitializeComponent();
-	InitializeGameMap(size);
+	game = _game;
+	game->InitBoard();
+	InitializeGameMap();
+}
+
+GameForm::GameForm() {
+	InitializeComponent();
 }
 
 GameForm::~GameForm() {
@@ -25,10 +32,10 @@ System::Void GameForm::GameForm_Closed(System::Object^ sender, System::Windows::
 	}
 }
 
-void GameForm::InitializeGameMap(int size) {
+void GameForm::InitializeGameMap() {
 	puzzleButtons = gcnew System::Collections::Generic::List<PuzzleButtonWrapper^>();
 
-	puzzleSize = size;
+	puzzleSize = game->GetSize();
 
 	gameMap->SuspendLayout();
 
@@ -38,36 +45,23 @@ void GameForm::InitializeGameMap(int size) {
 
 	gameMap->RowStyles->Clear();
 
-	gameMap->ColumnCount = size;
+	gameMap->ColumnCount = puzzleSize;
 
-	gameMap->RowCount = size;
+	gameMap->RowCount = puzzleSize;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < puzzleSize; i++)
 	{
-		gameMap->ColumnStyles->Add(gcnew ColumnStyle(SizeType::Percent, 100.0f / size));
-		gameMap->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 100.0f / size));
+		gameMap->ColumnStyles->Add(gcnew ColumnStyle(SizeType::Percent, 100.0f / puzzleSize));
+		gameMap->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 100.0f / puzzleSize));
 	}
 
-	std::vector<int> numbers = NumberHelper::generateShuffledNumbers(size);
+	int index = 1;
+	for (int i = 0; i < puzzleSize; i++) {
+		for (int j = 0; j < puzzleSize; j++) {
 
-	int index = 0;
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			bool isEmpty = i == size - 1 && j == size - 1;
-
-			int randomNumber = 0;
-			if (!isEmpty) {
-				randomNumber = numbers[index];
-			}
-			else {
-				randomNumber = size * size;
-			}
-			index++;
-
-			NumberPuzzle* nativePuzzle = new NumberPuzzle(index, randomNumber, isEmpty);
+			NumberPuzzle* nativePuzzle = game->GetBoard().FindByCurrentPosition(index);
 
 			PuzzleButton* puzzleButton = new PuzzleButton(nativePuzzle);
-
 			PuzzleButtonWrapper^ wrapper = gcnew PuzzleButtonWrapper(puzzleButton);
 
 			wrapper->ButtonControl->Click += gcnew System::EventHandler(this, &GameForm::PuzzleClick);
@@ -75,6 +69,8 @@ void GameForm::InitializeGameMap(int size) {
 			puzzleButtons->Add(wrapper);
 
 			gameMap->Controls->Add(wrapper->ButtonControl, j, i);
+
+			index++;
 		}
 	}
 
@@ -107,7 +103,7 @@ System::Void GameForm::PuzzleClick(System::Object^ sender, System::EventArgs^ e)
 
 
 System::Void GameForm::RestartGame_Click(System::Object^ sender, System::EventArgs^ e) {
-	InitializeGameMap(puzzleSize);
+	game->InitBoard();
 	elapsedSeconds = 0;
 }
 

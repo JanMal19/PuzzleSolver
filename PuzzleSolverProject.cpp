@@ -10,8 +10,8 @@ using namespace System::Windows::Forms;
 [STAThread]
 int main()
 {
-  Application::EnableVisualStyles();
-  Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew PuzzleSolver::StartForm());
-  return 0;
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+	Application::Run(gcnew PuzzleSolver::StartForm());
+	return 0;
 }

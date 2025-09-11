@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "PuzzleButton.h"
+#include "NumberPuzzle.h"
 
 PuzzleButton::PuzzleButton(NumberPuzzle* nativePuzzle) : puzzle(nativePuzzle) {
     button = gcnew Button();

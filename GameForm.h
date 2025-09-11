@@ -2,6 +2,7 @@
 
 #include "PuzzleButton.h"
 #include "PuzzleButtonWrapper.h"
+#include "Game.h"
 
 namespace PuzzleSolver {
 
@@ -19,9 +20,11 @@ namespace PuzzleSolver {
 	{
 	private:
 		System::Collections::Generic::List<PuzzleButtonWrapper^>^ puzzleButtons;
+		Game* game;
 
 	public:
-		GameForm(int size);
+		GameForm(Game* _game);
+		GameForm();
 
 	protected:
 		~GameForm();
@@ -198,9 +201,6 @@ namespace PuzzleSolver {
 
 		System::Windows::Forms::Button^ clickedButton = nullptr;
 
-		// PuzzleBoard* puzzleBoard;
-
-
 	private: 
 		System::Void GameForm_Closed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
 
@@ -230,7 +230,7 @@ namespace PuzzleSolver {
 
 		void SetClickedButtonTextAndColor(Button^ emptyButton);
 
-		void InitializeGameMap(int size);
+		void InitializeGameMap();
 
 		PuzzleButtonWrapper^ FindWrapperByPuzzle(NumberPuzzle* target);
 

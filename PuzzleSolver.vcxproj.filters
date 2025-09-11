@@ -46,9 +46,6 @@
     <Filter Include="Core\Puzzle\BasePuzzle">
       <UniqueIdentifier>{5c2ba624-9f8d-4778-bbed-cee8362bb075}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\PuzzleBoards\PuzzleBoard">
-      <UniqueIdentifier>{561f9bdd-94a5-4881-b4f8-1c9829126619}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Puzzle\NumberPuzzle">
       <UniqueIdentifier>{8cea89c5-f947-4399-8d45-0649c1bbff21}</UniqueIdentifier>
     </Filter>
@@ -91,6 +88,15 @@
     <Filter Include="Core\Puzzle\NumberPuzzleFromTemplate">
       <UniqueIdentifier>{cf8bc9ae-1300-434b-aeb7-7686b048b622}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Game">
+      <UniqueIdentifier>{92b31765-47ee-4f19-b201-1d8c9d26b6a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\PuzzleBoards\Board">
+      <UniqueIdentifier>{561f9bdd-94a5-4881-b4f8-1c9829126619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\AutoPlayer">
+      <UniqueIdentifier>{c7258900-925a-47a0-abc5-06668a19b6c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -131,8 +137,8 @@
     <ClInclude Include="NumberHelper.h">
       <Filter>Utils\NumberHelper</Filter>
     </ClInclude>
-    <ClInclude Include="PuzzleBoard.h">
-      <Filter>Core\PuzzleBoards\PuzzleBoard</Filter>
+    <ClInclude Include="Board.h">
+      <Filter>Core\PuzzleBoards\Board</Filter>
     </ClInclude>
     <ClInclude Include="Puzzle.h">
       <Filter>Core\Puzzle\BasePuzzle</Filter>
@@ -157,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="NumberPuzzleT.h">
       <Filter>Core\Puzzle\NumberPuzzleFromTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Core\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoPlayer.h">
+      <Filter>Core\AutoPlayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -196,8 +208,8 @@
     <ClCompile Include="NumberHelper.cpp">
       <Filter>Utils\NumberHelper</Filter>
     </ClCompile>
-    <ClCompile Include="PuzzleBoard.cpp">
-      <Filter>Core\PuzzleBoards\PuzzleBoard</Filter>
+    <ClCompile Include="Board.cpp">
+      <Filter>Core\PuzzleBoards\Board</Filter>
     </ClCompile>
     <ClCompile Include="Puzzle.cpp">
       <Filter>Core\Puzzle\BasePuzzle</Filter>
@@ -207,6 +219,12 @@
     </ClCompile>
     <ClCompile Include="PuzzleButton.cpp">
       <Filter>UI\Buttons\PuzzleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Core\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoPlayer.cpp">
+      <Filter>Core\AutoPlayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

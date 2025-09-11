@@ -131,12 +131,14 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AutoPlayer.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="NativeWrapper.h" />
     <ClInclude Include="NumberPuzzle.h" />
     <ClInclude Include="NumberPuzzleT.h" />
     <ClInclude Include="PointerConverter.h" />
     <ClInclude Include="Puzzle.h" />
-    <ClInclude Include="PuzzleBoard.h" />
+    <ClInclude Include="Board.h" />
     <ClInclude Include="CreatePlayerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -164,9 +166,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AutoPlayer.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="NumberPuzzle.cpp" />
     <ClCompile Include="Puzzle.cpp" />
-    <ClCompile Include="PuzzleBoard.cpp" />
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="CreatePlayerForm.cpp" />
     <ClCompile Include="FinishForm.cpp" />
     <ClCompile Include="GameForm.cpp" />

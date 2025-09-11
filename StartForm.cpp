@@ -4,6 +4,8 @@
 #include "TextDatabase.h"
 #include <msclr/marshal_cppstd.h>
 #include "GameForm.h"
+#include "Board.h"
+#include "Game.h"
 
 using namespace PuzzleSolver;
 
@@ -48,7 +50,18 @@ System::Void StartForm::StartGameButton_Click(System::Object^ sender, System::Ev
 
 	int n = Decimal::ToInt32(gameSizeUpDown->Value);
 
-	GameForm^ gameForm = gcnew PuzzleSolver::GameForm(n);
+	System::Object^ obj = PlayerComboBox->SelectedItem;
+	System::String^ managed = obj->ToString();
+
+	// teraz na std::string
+	std::string playerName = msclr::interop::marshal_as<std::string>(managed);
+
+	Player player = Player(playerName);
+
+	Game* game = new Game(player, n);
+
+	GameForm^ gameForm = gcnew PuzzleSolver::GameForm(game);
+
 	gameForm->ShowDialog();
 
 	if (gameForm->DialogResult == System::Windows::Forms::DialogResult::OK) {

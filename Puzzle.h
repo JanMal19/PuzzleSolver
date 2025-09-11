@@ -10,9 +10,10 @@ public class Puzzle
 protected:
     int targetPosition;
     int currentPosition;
+    bool isEmpty;
 
 public:
-    Puzzle(int tPosition, int cPosition) : targetPosition(tPosition), currentPosition(cPosition){}
+    Puzzle(int tPosition, int cPosition, bool _isEmpty) : targetPosition(tPosition), currentPosition(cPosition), isEmpty(_isEmpty) { }
 
     virtual ~Puzzle() {}
 
@@ -23,4 +24,10 @@ public:
     virtual std::string Draw() = 0;
 
     inline int GetCurrentPosition() { return currentPosition; }
+
+    inline int GetTargetPosition() { return targetPosition; }
+
+    inline bool IsEmpty() { return isEmpty; }
+
+    inline void SetIsEmpty(bool _isEmpty) { isEmpty = _isEmpty; }
 };
